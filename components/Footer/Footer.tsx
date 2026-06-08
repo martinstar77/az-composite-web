@@ -29,6 +29,7 @@ export default function Footer() {
               alt="AZComposite"
               width={140}
               height={38}
+              style={{ height: "32px", width: "auto" }}
               className={styles.logo}
             />
           </Link>

@@ -38,11 +38,11 @@ export default function Solution() {
           {/* Right: Quote cards */}
           <div className={styles.right}>
             <div className={`glass-card ${styles.quoteCard}`}>
-              <div className={styles.quoteIcon} aria-hidden="true">"</div>
+              <div className={styles.quoteIcon} aria-hidden="true">&ldquo;</div>
               <p className={styles.quoteText}>{t("quote1")}</p>
             </div>
             <div className={`glass-card ${styles.quoteCard} ${styles.quoteCardAccent}`}>
-              <div className={styles.quoteIcon} aria-hidden="true">"</div>
+              <div className={styles.quoteIcon} aria-hidden="true">&ldquo;</div>
               <p className={styles.quoteText}>{t("quote2")}</p>
             </div>
           </div>
