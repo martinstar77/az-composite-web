@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "solution": "Solution",
+    "innovation": "Innovation",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "badge": "PREMIUM COMPOSITE SUPPLIER",
+    "heading1": "YOUR COMPLETE PARTNER FOR",
+    "heading2": "COMPOSITE MANUFACTURING",
+    "sub": "We provide a wide spectrum of materials and build strategic partnerships. We support you in adopting advanced materials and manufacturing processes.",
+    "cta_primary": "Request a Quote",
+    "cta_secondary": "View Portfolio",
+    "pill1": "Agile Approach",
+    "pill2": "Transparent Procurement",
+    "pill3": "Technical Support"
+  },
+  "stats": {
+    "categories": { "value": "360°", "label": "Complete Portfolio for Composites" },
+    "rd": { "value": "R&D", "label": "In-house Development" },
+    "sourcing": { "value": "EU + Asia", "label": "Global Sourcing" },
+    "delivery": { "value": "Agile", "label": "Fast Delivery" }
+  },
+  "solution": {
+    "heading": "WHY AZCOMPOSITE",
+    "tagline1": "We are a modern supplier",
+    "tagline2": "breaking down barriers.",
+    "highlight1": "Agile Approach",
+    "highlight2": "Transparent Procurement",
+    "highlight3": "Technical Support",
+    "quote1": "\"We understand that navigating today's composites market is time-consuming and process-intensive for companies. In day-to-day operations, there is rarely room to search for more efficient materials or test new innovations.",
+    "quote2": "At AZComposite, we break down these barriers. We are a modern supplier that brings solutions to simplify manufacturing and ensures a smooth path to implementation. We pride ourselves on an agile approach, transparent procurement and immediate access to technical information.\""
+  },
+  "innovation": {
+    "heading": "DEVELOPMENT & INNOVATION",
+    "subheading": "We don't just rely on datasheet values — we test and develop the materials in our portfolio.",
+    "items": [
+      {
+        "id": "data",
+        "title": "First-Hand Data",
+        "body": "We offer fabrics with precisely mapped properties. We conduct our own tests and microscopic crack analysis compared to competitors, so you always know exactly what you are buying."
+      },
+      {
+        "id": "activecore",
+        "title": "Active Core Technology",
+        "body": "We develop \"active core\" solutions for manufacturing complex prepreg parts without the need for an autoclave."
+      },
+      {
+        "id": "partners",
+        "title": "Innovation Integration",
+        "body": "We work on implementing innovative solutions from our partners SOARCE and Nawah for advanced composite applications."
+      }
+    ]
+  },
+  "portfolio": {
+    "heading": "PORTFOLIO",
+    "subheading": "Complete range for composite manufacturing — from reinforcement materials to surface treatments.",
+    "quote": "\"Innovation is the foundation of our approach. What we cannot find in our wide supplier network, we are ready to develop from scratch with you. Share your vision and let's make it happen!\"",
+    "items": [
+      {
+        "id": "vyztuzne",
+        "title": "Reinforcement Materials",
+        "body": "Carbon, glass, aramid, flax and hemp fabrics and mats for visual and structural applications."
+      },
+      {
+        "id": "prepregy",
+        "title": "Prepregs",
+        "body": "Aerospace-grade systems — from fast-cure and structural to special tooling prepregs for mold manufacturing."
+      },
+      {
+        "id": "pryskyrice",
+        "title": "Resins",
+        "body": "Premium polyester and vinyl ester systems (including sustainable options) and epoxies manufactured in the Czech Republic, fully customizable."
+      },
+      {
+        "id": "sendvic",
+        "title": "Sandwich Materials",
+        "body": "High-performance flexible cores, PVC and PMI foams for maximum flexural stiffness."
+      },
+      {
+        "id": "techmat",
+        "title": "Process Materials",
+        "body": "Complete range for vacuum infusion — films, breather fabrics, flow media — reliably covering the entire manufacturing process."
+      },
+      {
+        "id": "chemie",
+        "title": "Chemistry & Surfaces",
+        "body": "Two-component structural adhesives, mold release agents and premium Pai Cristal polishing systems. Eco-friendly RST-5 cleaning as a 100% non-toxic acetone alternative."
+      },
+      {
+        "id": "spoj",
+        "title": "Fastening Systems",
+        "body": "Specialized Specialinsert anchoring elements for mechanical installation or direct lamination integration."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "CONTACT",
+    "subheading": "Have a question or interested in collaboration? Write to us.",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "E-mail",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send Inquiry",
+      "success": "Thank you! We will get back to you as soon as possible.",
+      "error": "Sending failed. Please try again."
+    },
+    "info": {
+      "general": "General & business inquiries",
+      "name": "Ing. Filip Klier – Founder & CEO",
+      "phone": "+420 736 448 257",
+      "email": "filip.klier@azcomposite.com",
+      "billing_heading": "Billing Details",
+      "billing_name": "Ing. Filip Klier",
+      "billing_address": "Jankovcova 1587/8, Holešovice",
+      "billing_city": "170 00 Praha 7",
+      "billing_country": "Czech Republic",
+      "ico": "ID: 23048255",
+      "dic": "VAT: CZ9906261937"
+    }
+  },
+  "footer": {
+    "tagline": "Your complete partner for composite manufacturing",
+    "rights": "All rights reserved."
+  }
+}

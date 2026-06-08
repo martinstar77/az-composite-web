@@ -1,0 +1,123 @@
+.solution {
+  background: var(--color-dark);
+  position: relative;
+}
+
+.solution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-purple), transparent);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+/* Left */
+.left {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-8));
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: var(--space-8);
+  color: var(--color-text-primary);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+}
+
+.highlightDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-purple-core);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--color-purple-core);
+}
+
+/* Right */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Quote cards */
+.quoteCard {
+  padding: var(--space-8);
+  position: relative;
+}
+
+.quoteCardAccent {
+  border-color: var(--color-border-purple);
+  background: rgba(138, 4, 133, 0.05);
+}
+
+.quoteIcon {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 0.8;
+  color: var(--color-purple-core);
+  opacity: 0.4;
+  margin-bottom: var(--space-3);
+  display: block;
+}
+
+.quoteText {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .left {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .quoteCard {
+    padding: var(--space-6);
+  }
+
+  .quoteText {
+    font-size: var(--text-base);
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+  }
+}

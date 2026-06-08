@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "solution": "Řešení",
+    "innovation": "Inovace",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "cta": "Poptat"
+  },
+  "hero": {
+    "badge": "TECHNOLOGICKÝ PARTNER PRO KOMPOZITY",
+    "heading1": "KOMPLEXNÍ PARTNER PRO",
+    "heading2": "KOMPOZITNÍ VÝROBU",
+    "sub": "Poskytujeme široké spektrum produktů a tvoříme strategická partnerství. Podporujeme Vás v zavádění pokročilých materiálů a výrobních postupů.",
+    "cta_primary": "Nezávazně poptat",
+    "cta_secondary": "Prohlédnout portfolio",
+    "pill1": "Agilní přístup",
+    "pill2": "Přehledný nákup",
+    "pill3": "Technická podpora"
+  },
+  "stats": {
+    "categories": { "value": "360°", "label": "Kompletní portfolio pro laminaci" },
+    "rd": { "value": "R&D", "label": "Vlastní vývoj" },
+    "sourcing": { "value": "EU + Asia", "label": "Globální sourcing" },
+    "delivery": { "value": "Agile", "label": "Rychlá dodávka" }
+  },
+  "solution": {
+    "heading": "PROČ AZCOMPOSITE",
+    "tagline1": "Jsme moderní dodavatel,",
+    "tagline2": "který boří bariéry.",
+    "highlight1": "Agilní přístup",
+    "highlight2": "Přehledný nákup",
+    "highlight3": "Technická podpora",
+    "quote1": "„Uvědomujeme si, že orientace na současném trhu s kompozity je pro firmy časově i procesně náročná. V každodenním provozu často nezbývá prostor pro vyhledávání efektivnějších materiálů nebo testování nových inovací.",
+    "quote2": "V AZComposite proto boříme zažité bariéry. Jsme moderním dodavatelem, který přináší řešení pro usnadnění výroby a zajišťuje hladkou cestu k jejich nasazení. Zakládáme si na agilním přístupu, přehledném nákupu a okamžité dostupnosti technických informací."
+  },
+  "innovation": {
+    "heading": "VÝVOJ A INOVACE",
+    "subheading": "Nespoléháme se jen na tabulkové hodnoty, ale materiály v našem portfoliu testujeme a vyvíjíme.",
+    "items": [
+      {
+        "id": "data",
+        "title": "Data z první ruky",
+        "body": "Nabízíme tkaniny s přesně zmapovanými vlastnostmi. Na materiálech provádíme vlastní zkoušky a následnou mikroskopickou analýzu trhlin ve srovnání s konkurencí, takže vždy víte, co kupujete."
+      },
+      {
+        "id": "activecore",
+        "title": "Active Core Technologie",
+        "body": "Vyvíjíme 'active core' řešení pro výrobu komplexních dílů z prepregů bez nutnosti použití autoklávu."
+      },
+      {
+        "id": "partners",
+        "title": "Zavádění inovací",
+        "body": "Pracujeme na implementaci inovativních řešení od našich partnerů SOARCE a Nawah pro pokročilé aplikace."
+      }
+    ]
+  },
+  "portfolio": {
+    "heading": "PORTFOLIO",
+    "subheading": "Kompletní sortiment pro kompozitní výrobu — od výztužných materiálů po povrchové úpravy.",
+    "quote": "Inovace jsou základem našeho přístupu. Co nenajdeme v portfoliu naší široké sítě dodavatelů, to jsme připraveni s vámi vyvinout od nuly. Sdílejte s námi svou vizi a pojďme ji zrealizovat!",
+    "items": [
+      {
+        "id": "vyztuzne",
+        "title": "Výztužné materiály",
+        "body": "Uhlíkové, skelné, aramidové, lněné a konopné tkaniny a rohože pro pohledové i konstrukční aplikace."
+      },
+      {
+        "id": "prepregy",
+        "title": "Prepregy",
+        "body": "Systémy letecké kvality — od rychle vytvrzujících přes konstrukční až po speciální nástrojové prepregy pro výrobu forem."
+      },
+      {
+        "id": "pryskyrice",
+        "title": "Pryskyřice",
+        "body": "Prémiové polyesterové a vinylesterové systémy (včetně udržitelných) a epoxidy vyráběné v ČR, plně upravitelné na míru."
+      },
+      {
+        "id": "sendvic",
+        "title": "Sendvičové materiály",
+        "body": "Vysoce výkonná flexibilní jádra, PVC a PMI pěny pro dosažení maximální ohybové tuhosti."
+      },
+      {
+        "id": "techmat",
+        "title": "Technologické materiály",
+        "body": "Kompletní sortiment pro vakuování (fólie, odsávací rohože, rozvody) spolehlivě pokrývající celý výrobní proces."
+      },
+      {
+        "id": "chemie",
+        "title": "Chemie a povrchy",
+        "body": "Dvousložková lepidla, separátory forem a prémiové lešticí systémy Pai Cristal. Ekologické čištění RST-5 jako 100% netoxická náhrada acetonu."
+      },
+      {
+        "id": "spoj",
+        "title": "Spojovací materiál",
+        "body": "Specializované kotevní prvky Specialinsert pro mechanickou instalaci i integraci přímo při laminaci."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "KONTAKT",
+    "subheading": "Máte dotaz nebo zájem o spolupráci? Napište nám.",
+    "form": {
+      "name": "Jméno",
+      "company": "Firma",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "message": "Zpráva",
+      "send": "Odeslat poptávku",
+      "success": "Děkujeme! Ozveme se vám co nejdříve.",
+      "error": "Chyba při odesílání. Zkuste to prosím znovu."
+    },
+    "info": {
+      "general": "Obecné a obchodní dotazy",
+      "name": "Ing. Filip Klier – Founder & CEO",
+      "phone": "+420 736 448 257",
+      "email": "filip.klier@azcomposite.com",
+      "billing_heading": "Fakturační údaje",
+      "billing_name": "Ing. Filip Klier",
+      "billing_address": "Jankovcova 1587/8, Holešovice",
+      "billing_city": "170 00 Praha 7",
+      "billing_country": "Česká republika",
+      "ico": "IČO: 23048255",
+      "dic": "DIČ: CZ9906261937"
+    }
+  },
+  "footer": {
+    "tagline": "Komplexní partner pro kompozitní výrobu",
+    "rights": "Všechna práva vyhrazena."
+  }
+}
