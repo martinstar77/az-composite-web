@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     "AZComposite poskytuje prémiové materiály pro kompozitní výrobu: výztužné tkaniny, prepregy, pryskyřice, sendvičové materiály a technologické materiály. Váš agile partner pro laminaci.",
   keywords:
     "kompozity, uhlíkové tkaniny, prepregy, pryskyřice, sendvičové materiály, laminace, carbon fiber, AZComposite",
+  icons: {
+    icon: "/images/logo-icon.png",
+    shortcut: "/images/logo-icon.png",
+    apple: "/images/logo-icon.png",
+  },
   openGraph: {
     title: "AZComposite — Komplexní partner pro kompozitní výrobu",
     description:

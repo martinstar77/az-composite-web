@@ -18,7 +18,7 @@
     "pill3": "Technical Support"
   },
   "stats": {
-    "categories": { "value": "360°", "label": "Complete Portfolio for Composites" },
+    "categories": { "value": "A–Z", "label": "Complete Portfolio for Composites" },
     "rd": { "value": "R&D", "label": "In-house Development" },
     "sourcing": { "value": "EU + Asia", "label": "Global Sourcing" },
     "delivery": { "value": "Agile", "label": "Fast Delivery" }

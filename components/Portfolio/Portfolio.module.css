@@ -43,22 +43,24 @@
   transition: border-color var(--transition-base), transform var(--transition-base);
 }
 
-.card:hover {
-  border-color: var(--color-border-purple);
-  transform: translateY(-3px);
-}
+@media (hover: hover) {
+  .card:hover {
+    border-color: var(--color-border-purple);
+    transform: translateY(-3px);
+  }
 
-.card:hover .cardGlow {
-  opacity: 1;
-}
+  .card:hover .cardGlow {
+    opacity: 1;
+  }
 
-.card:hover .cardArrow {
-  transform: translateX(4px);
-  color: var(--color-purple-mid);
-}
+  .card:hover .cardArrow {
+    transform: translateX(4px);
+    color: var(--color-purple-mid);
+  }
 
-.card:hover .cardSymbol {
-  color: var(--color-purple-mid);
+  .card:hover .cardSymbol {
+    color: var(--color-purple-mid);
+  }
 }
 
 .cardInner {

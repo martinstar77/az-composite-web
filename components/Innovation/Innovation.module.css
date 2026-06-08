@@ -27,10 +27,19 @@
   transition: all var(--transition-base);
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  border-color: var(--color-border-purple);
-  box-shadow: var(--shadow-card), 0 0 40px var(--color-purple-glow);
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-border-purple);
+    box-shadow: var(--shadow-card), 0 0 40px var(--color-purple-glow);
+  }
+
+  .card:hover .icon {
+    background: rgba(138,4,133,0.2);
+    border-color: rgba(138,4,133,0.5);
+    color: var(--color-purple-light);
+    box-shadow: 0 0 20px var(--color-purple-glow);
+  }
 }
 
 /* Image */
@@ -64,12 +73,7 @@
   transition: all var(--transition-base);
 }
 
-.card:hover .icon {
-  background: rgba(138,4,133,0.2);
-  border-color: rgba(138,4,133,0.5);
-  color: var(--color-purple-light);
-  box-shadow: 0 0 20px var(--color-purple-glow);
-}
+
 
 /* Body */
 .cardBody {

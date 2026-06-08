@@ -134,6 +134,11 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+  touch-action: manipulation;
+}
+
+a {
+  touch-action: manipulation;
 }
 
 input, textarea {
@@ -270,10 +275,12 @@ input, textarea {
   transition: all var(--transition-base);
 }
 
-.glass-card:hover {
-  border-color: var(--color-border-purple);
-  box-shadow: var(--shadow-card), 0 0 30px var(--color-purple-glow);
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .glass-card:hover {
+    border-color: var(--color-border-purple);
+    box-shadow: var(--shadow-card), 0 0 30px var(--color-purple-glow);
+    transform: translateY(-2px);
+  }
 }
 
 /* --- Purple Accent Line --- */
@@ -446,6 +453,10 @@ input, textarea {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --nav-height: 60px;
+  }
+
   .section {
     padding: var(--space-10) 0;
   }
@@ -457,5 +468,25 @@ input, textarea {
   /* Prevent horizontal overflow on small screens */
   .container {
     padding: 0 var(--space-4);
+  }
+}
+
+/* Disable hover transforms on touch-only devices to prevent sticky hover */
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-outline:hover {
+    transform: none;
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

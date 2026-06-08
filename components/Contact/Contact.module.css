@@ -54,8 +54,10 @@
   transition: color var(--transition-fast);
 }
 
-a.contactItem:hover {
-  color: var(--color-purple-light);
+@media (hover: hover) {
+  a.contactItem:hover {
+    color: var(--color-purple-light);
+  }
 }
 
 .contactIcon {
