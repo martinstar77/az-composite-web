@@ -60,9 +60,9 @@ export default function Footer() {
             <span className={styles.copy}>
               © {year} AZComposite · Ing. Filip Klier · IČO: 23048255 · {t("rights")}
             </span>
-            <a href="mailto:filip.klier@azcomposite.com" className={styles.bottomEmail}>
-              filip.klier@azcomposite.com
-            </a>
+            <Link href="/privacy" className={styles.bottomEmail}>
+              {t("privacy")}
+            </Link>
           </div>
         </div>
       </div>

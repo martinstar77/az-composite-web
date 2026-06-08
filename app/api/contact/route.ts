@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// TODO: Uncomment when Resend API key is set
-// import { Resend } from "resend";
-// const resend = new Resend(process.env.RESEND_API_KEY);
+import { Resend } from "resend";
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,32 +16,41 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
-    // --- Resend integration (activate when RESEND_API_KEY is set) ---
-    // const { data, error } = await resend.emails.send({
-    //   from: "web@azcomposite.com",
-    //   to: ["filip.klier@azcomposite.com"],
-    //   replyTo: email,
-    //   subject: `Nová poptávka od ${name}${company ? ` (${company})` : ""}`,
-    //   text: `
-    //     Jméno: ${name}
-    //     Firma: ${company || "—"}
-    //     E-mail: ${email}
-    //     Telefon: ${phone || "—"}
-    //     
-    //     Zpráva:
-    //     ${message}
-    //   `,
-    // });
-    //
-    // if (error) {
-    //   console.error("Resend error:", error);
-    //   return NextResponse.json({ error: "Email send failed" }, { status: 500 });
-    // }
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-    // --- Fallback: log to console in development ---
-    console.log("📧 Contact form submission:", { name, company, email, phone, message });
+    if (resendApiKey) {
+      const resend = new Resend(resendApiKey);
+      const { error } = await resend.emails.send({
+        from: "web@azcomposite.com",
+        to: ["filip.klier@azcomposite.com"],
+        replyTo: email,
+        subject: `Nová poptávka od ${name}${company ? ` (${company})` : ""}`,
+        text: `
+          Jméno: ${name}
+          Firma: ${company || "—"}
+          E-mail: ${email}
+          Telefon: ${phone || "—"}
+          
+          Zpráva:
+          ${message}
+        `,
+      });
 
-    // Simulate success for development
+      if (error) {
+        console.error("Resend error:", error);
+        return NextResponse.json({ error: "Email send failed" }, { status: 500 });
+      }
+    } else {
+      // Fallback: log to console in development
+      console.log("📧 (Dev Mode - No API Key) Contact form submission:", {
+        name,
+        company,
+        email,
+        phone,
+        message,
+      });
+    }
+
     return NextResponse.json({ success: true }, { status: 200 });
 
   } catch (error) {

@@ -116,7 +116,7 @@ export default function Contact() {
                     id="name"
                     className={`form-input ${errors.name ? styles.inputError : ""}`}
                     type="text"
-                    placeholder="Jan Novák"
+                    placeholder={tf("placeholder_name")}
                     {...register("name", { required: true })}
                     aria-invalid={!!errors.name}
                   />
@@ -127,7 +127,7 @@ export default function Contact() {
                     id="company"
                     className="form-input"
                     type="text"
-                    placeholder="Firma s.r.o."
+                    placeholder={tf("placeholder_company")}
                     {...register("company")}
                   />
                 </div>
@@ -140,7 +140,7 @@ export default function Contact() {
                     id="email"
                     className={`form-input ${errors.email ? styles.inputError : ""}`}
                     type="email"
-                    placeholder="jan@firma.cz"
+                    placeholder={tf("placeholder_email")}
                     {...register("email", { required: true, pattern: /^\S+@\S+\.\S+$/ })}
                     aria-invalid={!!errors.email}
                   />
@@ -151,7 +151,7 @@ export default function Contact() {
                     id="phone"
                     className="form-input"
                     type="tel"
-                    placeholder="+420 000 000 000"
+                    placeholder={tf("placeholder_phone")}
                     {...register("phone")}
                   />
                 </div>
@@ -162,7 +162,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   className={`form-textarea ${errors.message ? styles.inputError : ""}`}
-                  placeholder="Popište váš zájem nebo dotaz..."
+                  placeholder={tf("placeholder_message")}
                   {...register("message", { required: true })}
                   aria-invalid={!!errors.message}
                 />

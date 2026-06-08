@@ -105,6 +105,11 @@
       "email": "E-mail",
       "phone": "Telefon",
       "message": "Zpráva",
+      "placeholder_name": "Jan Novák",
+      "placeholder_company": "Firma s.r.o.",
+      "placeholder_email": "jan@firma.cz",
+      "placeholder_phone": "+420 700 000 000",
+      "placeholder_message": "Popište váš zájem nebo dotaz...",
       "send": "Odeslat poptávku",
       "success": "Děkujeme! Ozveme se vám co nejdříve.",
       "error": "Chyba při odesílání. Zkuste to prosím znovu."
@@ -125,6 +130,26 @@
   },
   "footer": {
     "tagline": "Komplexní partner pro kompozitní výrobu",
-    "rights": "Všechna práva vyhrazena."
+    "rights": "Všechna práva vyhrazena.",
+    "privacy": "Ochrana osobních údajů"
+  },
+  "cookie_banner": {
+    "title": "Nastavení souborů cookies",
+    "text": "Používáme cookies pro zajištění správného chodu webu a analýzu návštěvnosti. Kliknutím na „Přijmout vše“ vyjadřujete souhlas s jejich použitím.",
+    "accept_all": "Přijmout vše",
+    "reject_all": "Odmítnout"
+  },
+  "privacy": {
+    "title": "Ochrana osobních údajů",
+    "intro": "V AZComposite bereme ochranu vašich osobních údajů vážně. Tyto zásady popisují, jak shromažďujeme, zpracováváme a chráníme informace, které nám poskytnete prostřednictvím tohoto webu.",
+    "section1_title": "1. Správce osobních údajů",
+    "section1_text": "Správcem osobních údajů je Ing. Filip Klier, IČO: 23048255, se sídlem Jankovcova 1587/8, Holešovice, 170 00 Praha 7.",
+    "section2_title": "2. Jaké údaje zpracováváme",
+    "section2_text": "Zpracováváme údaje, které nám odešlete prostřednictvím kontaktního formuláře (jméno, e-mail, telefon, název firmy a obsah zprávy) a anonymní údaje o návštěvnosti pomocí souborů cookies.",
+    "section3_title": "3. Účel zpracování",
+    "section3_text": "Vaše údaje zpracováváme výhradně za účelem odpovědi na vaše dotazy, vyřízení poptávek nebo pro analytické vyhodnocení návštěvnosti našeho webu na základě vašeho souhlasu.",
+    "section4_title": "4. Vaše práva",
+    "section4_text": "Máte právo požadovat přístup ke svým osobním údajům, jejich opravu, vymazání nebo omezení zpracování. Své dotazy můžete zasílat na e-mail: filip.klier@azcomposite.com.",
+    "back": "Zpět na úvod"
   }
 }
