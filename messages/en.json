@@ -137,7 +137,15 @@
     "title": "Cookie Consent Settings",
     "text": "We use cookies to ensure the proper functioning of our website and to analyze traffic. By clicking \"Accept All\", you consent to their use.",
     "accept_all": "Accept All",
-    "reject_all": "Decline"
+    "reject_all": "Reject All",
+    "settings": "Settings",
+    "save": "Save Settings",
+    "essential_title": "Essential",
+    "essential_desc": "Required for core website functioning and language routing.",
+    "analytical_title": "Analytical",
+    "analytical_desc": "Help us measure website traffic and improve site structure.",
+    "marketing_title": "Marketing",
+    "marketing_desc": "Used for personalization and targeting relevant advertisements."
   },
   "privacy": {
     "title": "Privacy Policy",

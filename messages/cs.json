@@ -137,7 +137,15 @@
     "title": "Nastavení souborů cookies",
     "text": "Používáme cookies pro zajištění správného chodu webu a analýzu návštěvnosti. Kliknutím na „Přijmout vše“ vyjadřujete souhlas s jejich použitím.",
     "accept_all": "Přijmout vše",
-    "reject_all": "Odmítnout"
+    "reject_all": "Odmítnout vše",
+    "settings": "Nastavení",
+    "save": "Uložit nastavení",
+    "essential_title": "Nezbytné",
+    "essential_desc": "Nutné pro správný chod webu a překladů.",
+    "analytical_title": "Analytické",
+    "analytical_desc": "Pomáhají nám měřit návštěvnost a zlepšovat strukturu webu.",
+    "marketing_title": "Marketingové",
+    "marketing_desc": "Pro přizpůsobení a cílení relevantní reklamy."
   },
   "privacy": {
     "title": "Ochrana osobních údajů",

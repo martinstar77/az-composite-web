@@ -5,7 +5,7 @@
   right: var(--space-6);
   margin: 0 auto;
   max-width: 600px;
-  background: rgba(21, 21, 26, 0.85);
+  background: rgba(21, 21, 26, 0.9);
   border: 1px solid var(--color-border-purple);
   border-radius: var(--radius-lg);
   backdrop-filter: blur(24px);
@@ -46,31 +46,166 @@
   gap: var(--space-3);
 }
 
-.btnAccept {
+/* Action Buttons */
+.btnAccept,
+.btnSave {
   background: var(--color-purple-core) !important;
   color: var(--color-white) !important;
   border: none !important;
   cursor: pointer;
 }
 
-.btnAccept:hover {
+.btnAccept:hover,
+.btnSave:hover {
   background: var(--color-purple-mid) !important;
   box-shadow: 0 0 15px rgba(138, 4, 133, 0.4);
 }
 
-.btnReject {
+.btnReject,
+.btnSettings {
   background: transparent !important;
   color: var(--color-text-secondary) !important;
   border: 1px solid var(--color-border) !important;
   cursor: pointer;
 }
 
-.btnReject:hover {
+.btnReject:hover,
+.btnSettings:hover {
   border-color: var(--color-purple-mid) !important;
   color: var(--color-text-primary) !important;
   background: rgba(255, 255, 255, 0.02) !important;
 }
 
+/* Settings Checklist Panel */
+.settingsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.checkboxGroup {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.checkboxGroup:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxCustom {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Checked custom checkbox */
+.checkboxLabel input:checked ~ .checkboxCustom {
+  background-color: var(--color-purple-core);
+  border-color: var(--color-purple-core);
+  box-shadow: 0 0 8px rgba(138, 4, 133, 0.4);
+}
+
+/* Checkmark indicator styling */
+.checkboxCustom::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkboxLabel input:checked ~ .checkboxCustom::after {
+  display: block;
+}
+
+/* Disabled state styling */
+.checkboxLabel input:disabled ~ .checkboxCustom {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkboxLabel input:disabled ~ .checkboxCustom::after {
+  border-color: var(--color-text-secondary);
+}
+
+.checkboxLabel input:disabled ~ .checkboxText .checkboxTitle {
+  color: var(--color-text-secondary);
+}
+
+.checkboxText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.checkboxTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.checkboxDescription {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.badgeRequired {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Optimization */
 @media (max-width: 640px) {
   .banner {
     bottom: var(--space-4);
@@ -86,7 +221,26 @@
   }
 
   .btnAccept,
-  .btnReject {
+  .btnReject,
+  .btnSave,
+  .btnSettings {
     width: 100% !important;
+  }
+
+  .checkboxGroup {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .checkboxCustom {
+    height: 18px;
+    width: 18px;
+    margin-top: 1px;
+  }
+
+  .checkboxCustom::after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
   }
 }

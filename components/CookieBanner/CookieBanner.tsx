@@ -13,16 +13,28 @@ export default function CookieBanner() {
   const t = useTranslations("cookie_banner");
   const [mounted, setMounted] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  const updateConsentMode = (granted: boolean) => {
+  // Granular consent states (defaulting to true for pre-selection UX)
+  const [consentAnalytical, setConsentAnalytical] = useState(true);
+  const [consentMarketing, setConsentMarketing] = useState(true);
+
+  // Define GTM consent update function
+  const updateConsentMode = (analytical: boolean, marketing: boolean) => {
     if (typeof window !== "undefined") {
       const customWindow = window as unknown as CustomWindow;
       const dataLayer = customWindow.dataLayer || [];
       customWindow.dataLayer = dataLayer;
+      
       dataLayer.push({
         event: "consent_update",
-        analytics_consent: granted ? "granted" : "denied",
-        marketing_consent: granted ? "granted" : "denied",
+        analytics_consent: analytical ? "granted" : "denied",
+        marketing_consent: marketing ? "granted" : "denied",
+        // Standard GTM Consent Mode v2 fields
+        ad_storage: marketing ? "granted" : "denied",
+        analytics_storage: analytical ? "granted" : "denied",
+        ad_user_data: marketing ? "granted" : "denied",
+        ad_personalization: marketing ? "granted" : "denied",
       });
     }
   };
@@ -34,16 +46,57 @@ export default function CookieBanner() {
       if (!consent) {
         setShowBanner(true);
       } else {
-        updateConsentMode(consent === "granted");
+        try {
+          if (consent === "granted") {
+            setConsentAnalytical(true);
+            setConsentMarketing(true);
+            updateConsentMode(true, true);
+          } else if (consent === "denied") {
+            setConsentAnalytical(false);
+            setConsentMarketing(false);
+            updateConsentMode(false, false);
+          } else {
+            const parsed = JSON.parse(consent);
+            const analytical = !!parsed.analytical;
+            const marketing = !!parsed.marketing;
+            setConsentAnalytical(analytical);
+            setConsentMarketing(marketing);
+            updateConsentMode(analytical, marketing);
+          }
+        } catch {
+          // Fallback if local storage string is corrupted or obsolete
+          setConsentAnalytical(false);
+          setConsentMarketing(false);
+          updateConsentMode(false, false);
+        }
       }
     }, 0);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const handleConsent = (granted: boolean) => {
-    localStorage.setItem("cookie_consent", granted ? "granted" : "denied");
-    updateConsentMode(granted);
+  const handleAcceptAll = () => {
+    const consentObj = { analytical: true, marketing: true };
+    localStorage.setItem("cookie_consent", JSON.stringify(consentObj));
+    setConsentAnalytical(true);
+    setConsentMarketing(true);
+    updateConsentMode(true, true);
+    setShowBanner(false);
+  };
+
+  const handleRejectAll = () => {
+    const consentObj = { analytical: false, marketing: false };
+    localStorage.setItem("cookie_consent", JSON.stringify(consentObj));
+    setConsentAnalytical(false);
+    setConsentMarketing(false);
+    updateConsentMode(false, false);
+    setShowBanner(false);
+  };
+
+  const handleSaveSettings = () => {
+    const consentObj = { analytical: consentAnalytical, marketing: consentMarketing };
+    localStorage.setItem("cookie_consent", JSON.stringify(consentObj));
+    updateConsentMode(consentAnalytical, consentMarketing);
     setShowBanner(false);
   };
 
@@ -62,19 +115,131 @@ export default function CookieBanner() {
           <div className={styles.title}>{t("title")}</div>
           <p className={styles.text}>{t("text")}</p>
         </div>
+
+        <AnimatePresence>
+          {isSettingsOpen && (
+            <motion.div
+              className={styles.settingsPanel}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{ overflow: "hidden" }}
+            >
+              {/* Essential Cookies */}
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={true}
+                    disabled={true}
+                    className={styles.checkboxInput}
+                    onChange={() => {}}
+                  />
+                  <span className={styles.checkboxCustom}></span>
+                  <div className={styles.checkboxText}>
+                    <span className={styles.checkboxTitle}>
+                      {t("essential_title")}
+                      <span className={styles.badgeRequired}>
+                        {t("essential_title") === "Nezbytné" ? "Aktivní" : "Active"}
+                      </span>
+                    </span>
+                    <p className={styles.checkboxDescription}>
+                      {t("essential_desc")}
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              {/* Analytical Cookies */}
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={consentAnalytical}
+                    onChange={(e) => setConsentAnalytical(e.target.checked)}
+                    className={styles.checkboxInput}
+                  />
+                  <span className={styles.checkboxCustom}></span>
+                  <div className={styles.checkboxText}>
+                    <span className={styles.checkboxTitle}>
+                      {t("analytical_title")}
+                    </span>
+                    <p className={styles.checkboxDescription}>
+                      {t("analytical_desc")}
+                    </p>
+                  </div>
+                </label>
+              </div>
+
+              {/* Marketing Cookies */}
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={consentMarketing}
+                    onChange={(e) => setConsentMarketing(e.target.checked)}
+                    className={styles.checkboxInput}
+                  />
+                  <span className={styles.checkboxCustom}></span>
+                  <div className={styles.checkboxText}>
+                    <span className={styles.checkboxTitle}>
+                      {t("marketing_title")}
+                    </span>
+                    <p className={styles.checkboxDescription}>
+                      {t("marketing_desc")}
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className={styles.actions}>
-          <button
-            className={`btn ${styles.btnReject}`}
-            onClick={() => handleConsent(false)}
-          >
-            {t("reject_all")}
-          </button>
-          <button
-            className={`btn ${styles.btnAccept}`}
-            onClick={() => handleConsent(true)}
-          >
-            {t("accept_all")}
-          </button>
+          {!isSettingsOpen ? (
+            <>
+              <button
+                className={`btn ${styles.btnSettings}`}
+                onClick={() => setIsSettingsOpen(true)}
+              >
+                {t("settings")}
+              </button>
+              <button
+                className={`btn ${styles.btnReject}`}
+                onClick={handleRejectAll}
+              >
+                {t("reject_all")}
+              </button>
+              <button
+                className={`btn ${styles.btnAccept}`}
+                onClick={handleAcceptAll}
+              >
+                {t("accept_all")}
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className={`btn ${styles.btnSettings}`}
+                onClick={() => setIsSettingsOpen(false)}
+              >
+                {t("settings") === "Nastavení" ? "Zpět" : "Back"}
+              </button>
+              <button
+                className={`btn ${styles.btnReject}`}
+                onClick={handleRejectAll}
+              >
+                {t("reject_all")}
+              </button>
+              <button
+                className={`btn ${styles.btnSave}`}
+                onClick={handleSaveSettings}
+              >
+                {t("save")}
+              </button>
+            </>
+          )}
         </div>
       </motion.div>
     </AnimatePresence>
