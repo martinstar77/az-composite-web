@@ -99,13 +99,13 @@
 }
 
 .headingLine1 {
-  font-size: var(--text-hero);
+  font-size: clamp(2.2rem, 6.2vw, 5.2rem);
   color: var(--color-text-primary);
   display: block;
 }
 
 .headingLine2 {
-  font-size: var(--text-hero);
+  font-size: clamp(2.2rem, 6.2vw, 5.2rem);
   display: block;
 }
 

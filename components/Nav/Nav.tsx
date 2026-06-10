@@ -58,7 +58,7 @@ export default function Nav() {
               width={160}
               height={44}
               priority
-              style={{ height: "36px", width: "auto" }}
+              style={{ height: "42px", width: "auto" }}
               className={styles.logoImg}
             />
           </Link>

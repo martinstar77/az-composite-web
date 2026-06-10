@@ -15,7 +15,8 @@
     "cta_secondary": "View Portfolio",
     "pill1": "Agile Approach",
     "pill2": "Transparent Procurement",
-    "pill3": "Technical Support"
+    "pill3": "Technical Support",
+    "scroll": "scroll"
   },
   "stats": {
     "categories": { "value": "A–Z", "label": "Complete Portfolio for Composites" },

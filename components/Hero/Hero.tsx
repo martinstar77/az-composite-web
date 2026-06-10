@@ -79,7 +79,7 @@ export default function Hero() {
           aria-hidden="true"
         >
           <div className={styles.scrollLine} />
-          <span className={styles.scrollText}>scroll</span>
+          <span className={styles.scrollText}>{t("scroll")}</span>
         </motion.div>
       </div>
 
