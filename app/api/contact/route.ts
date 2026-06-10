@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
     if (resendApiKey) {
       const resend = new Resend(resendApiKey);
       const { error } = await resend.emails.send({
-        from: "web@azcomposite.com",
-        to: ["filip.klier@azcomposite.com"],
+        from: "info@azcomposite.com",
+        to: ["info@azcomposite.com"],
         replyTo: email,
         subject: `Nová poptávka od ${name}${company ? ` (${company})` : ""}`,
         text: `
