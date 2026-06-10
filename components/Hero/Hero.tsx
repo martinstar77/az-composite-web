@@ -59,13 +59,13 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div className={styles.ctas} {...fadeUp(0.45)}>
-          <a href="#kontakt" className="btn btn-primary btn-lg">
+          <a href="#kontakt" className={`btn btn-primary btn-lg ${styles.ctaBtn}`}>
             {t("cta_primary")}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
-          <a href="#portfolio" className="btn btn-outline btn-lg">
+          <a href="#portfolio" className={`btn btn-outline btn-lg ${styles.ctaBtn}`}>
             {t("cta_secondary")}
           </a>
         </motion.div>
