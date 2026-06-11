@@ -28,36 +28,12 @@
 
 .tagline {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.2;
-  margin-bottom: var(--space-8);
+  line-height: 1.15;
+  margin-bottom: 0;
   color: var(--color-text-primary);
-}
-
-.highlights {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.highlight {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
-  color: var(--color-text-secondary);
-}
-
-.highlightDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-purple-core);
-  flex-shrink: 0;
-  box-shadow: 0 0 10px var(--color-purple-core);
 }
 
 /* Right */
