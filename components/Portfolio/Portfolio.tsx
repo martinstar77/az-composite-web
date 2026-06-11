@@ -114,7 +114,11 @@ export default function Portfolio() {
       >
         <div className={styles.bannerGlow} aria-hidden="true" />
         <div className="container">
-          <p className={styles.bannerText}>{t("quote")}</p>
+          <p className={styles.bannerText}>
+            {t.rich("quote", {
+              gradient: (chunks) => <span className="text-gradient font-semibold">{chunks}</span>
+            })}
+          </p>
         </div>
       </motion.div>
     </section>

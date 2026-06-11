@@ -56,7 +56,7 @@
   "portfolio": {
     "heading": "PORTFOLIO",
     "subheading": "Complete range for composite manufacturing — from reinforcement materials to surface treatments.",
-    "quote": "\"Innovation is the foundation of our approach. What we cannot find in our wide supplier network, we are ready to develop from scratch with you. Share your vision and let's make it happen!\"",
+    "quote": "Innovation is the foundation of our approach. What we cannot find in our wide supplier network, we are ready to <gradient>develop from scratch</gradient> with you. Share your vision and <gradient>let's make it happen!</gradient>",
     "items": [
       {
         "id": "vyztuzne",
