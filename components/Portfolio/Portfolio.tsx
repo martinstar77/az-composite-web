@@ -102,19 +102,21 @@ export default function Portfolio() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom banner */}
-        <motion.div
-          className={styles.banner}
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className={styles.bannerGlow} aria-hidden="true" />
-          <p className={styles.bannerText}>{t("quote")}</p>
-        </motion.div>
       </div>
+
+      {/* Bottom banner (Full width, matching Stats style) */}
+      <motion.div
+        className={styles.banner}
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className={styles.bannerGlow} aria-hidden="true" />
+        <div className="container">
+          <p className={styles.bannerText}>{t("quote")}</p>
+        </div>
+      </motion.div>
     </section>
   );
 }
