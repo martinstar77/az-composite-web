@@ -26,7 +26,7 @@ export default function Solution() {
               <span className="text-gradient">{t("tagline2")}</span>
             </p>
             <div className={styles.highlights}>
-              {[t("highlight1"), t("highlight2"), t("highlight3")].map((item) => (
+              {[t("highlight1"), t("highlight2"), t("highlight3"), t("highlight4")].map((item) => (
                 <div key={item} className={styles.highlight}>
                   <div className={styles.highlightDot} />
                   <span>{item}</span>

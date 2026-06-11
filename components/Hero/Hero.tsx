@@ -55,6 +55,7 @@ export default function Hero() {
           <span className={styles.pill}>{t("pill1")}</span>
           <span className={styles.pill}>{t("pill2")}</span>
           <span className={styles.pill}>{t("pill3")}</span>
+          <span className={styles.pill}>{t("pill4")}</span>
         </motion.div>
 
         {/* CTAs */}
