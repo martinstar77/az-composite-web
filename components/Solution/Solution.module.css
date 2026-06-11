@@ -56,11 +56,11 @@
 
 .quoteIcon {
   font-family: Georgia, serif;
-  font-size: 5rem;
-  line-height: 0.8;
+  font-size: 3.5rem;
+  line-height: 0.5;
   color: var(--color-purple-core);
   opacity: 0.4;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-1);
   display: block;
 }
 
