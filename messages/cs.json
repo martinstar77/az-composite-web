@@ -114,10 +114,29 @@
       "error": "Chyba při odesílání. Zkuste to prosím znovu."
     },
     "info": {
-      "general": "Obecné a obchodní dotazy",
-      "name": "Ing. Filip Klier – Founder & CEO",
-      "phone": "+420 736 448 257",
-      "email": "filip.klier@azcomposite.com",
+      "general": "Obecné dotazy",
+      "general_email": "info@azcomposite.com",
+      "team_heading": "Náš tým",
+      "members": [
+        {
+          "name": "Ing. Filip Klier",
+          "role": "Founder & CEO",
+          "phone": "+420 736 448 257",
+          "email": "filip.klier@azcomposite.com"
+        },
+        {
+          "name": "Martin Štarman",
+          "role": "Co-Founder",
+          "phone": "+420 732 208 171",
+          "email": "martin.starman@azcomposite.com"
+        },
+        {
+          "name": "Jaromír Šolc",
+          "role": "Co-Founder",
+          "phone": "+420 721 872 470",
+          "email": "jaromir.solc@azcomposite.com"
+        }
+      ],
       "billing_heading": "Fakturační údaje",
       "billing_name": "Ing. Filip Klier",
       "billing_address": "Jankovcova 1587/8, Holešovice",

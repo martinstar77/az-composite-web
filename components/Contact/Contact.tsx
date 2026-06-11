@@ -18,6 +18,15 @@ export default function Contact() {
   const t = useTranslations("contact");
   const tf = useTranslations("contact.form");
   const ti = useTranslations("contact.info");
+  
+  interface Member {
+    name: string;
+    role: string;
+    phone: string;
+    email: string;
+  }
+  
+  const members = (ti.raw("members") || []) as Member[];
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
@@ -54,37 +63,46 @@ export default function Contact() {
             <h2 className="section-heading">{t("heading")}</h2>
             <p className={styles.subheading}>{t("subheading")}</p>
 
-            <div className={styles.contactDetails}>
+            <div className={styles.generalBlock}>
               <p className={styles.contactRole}>{ti("general")}</p>
-
-              <div className={styles.contactItem}>
-                <div className={styles.contactIcon}>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                    <circle cx="9" cy="7" r="3" stroke="currentColor" strokeWidth="1.5"/>
-                    <path d="M3 15c0-3.3 2.7-5 6-5s6 1.7 6 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
-                </div>
-                <span>{ti("name")}</span>
-              </div>
-
-              <a href={`tel:${ti("phone").replace(/\s/g, "")}`} className={styles.contactItem}>
-                <div className={styles.contactIcon}>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                    <path d="M6 2H3C2.4 2 2 2.4 2 3c0 8.3 6.7 15 15 15 .6 0 1-.4 1-1v-3l-4.5-1.5-1.1 2.2C9.7 13 5 8.3 3.3 5.6L5.5 4.5 4 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <span>{ti("phone")}</span>
-              </a>
-
-              <a href={`mailto:${ti("email")}`} className={styles.contactItem}>
+              <a href={`mailto:${ti("general_email")}`} className={styles.contactItem}>
                 <div className={styles.contactIcon}>
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                     <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
                     <path d="M2 6l7 5 7-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                   </svg>
                 </div>
-                <span>{ti("email")}</span>
+                <span>{ti("general_email")}</span>
               </a>
+            </div>
+
+            <div className={styles.teamSection}>
+              <h3 className={styles.teamHeading}>{ti("team_heading")}</h3>
+              <div className={styles.membersGrid}>
+                {members.map((member, idx) => (
+                  <div key={idx} className={styles.memberCard}>
+                    <div className={styles.memberInfo}>
+                      <span className={styles.memberName}>{member.name}</span>
+                      <span className={styles.memberRole}>{member.role}</span>
+                    </div>
+                    <div className={styles.memberContacts}>
+                      <a href={`tel:${member.phone.replace(/\s/g, "")}`} className={styles.memberContactItem}>
+                        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className={styles.memberIcon}>
+                          <path d="M6 2H3C2.4 2 2 2.4 2 3c0 8.3 6.7 15 15 15 .6 0 1-.4 1-1v-3l-4.5-1.5-1.1 2.2C9.7 13 5 8.3 3.3 5.6L5.5 4.5 4 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        {member.phone}
+                      </a>
+                      <a href={`mailto:${member.email}`} className={styles.memberContactItem}>
+                        <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className={styles.memberIcon}>
+                          <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                          <path d="M2 6l7 5 7-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                        </svg>
+                        {member.email}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
