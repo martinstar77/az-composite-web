@@ -22,7 +22,7 @@
   "stats": {
     "categories": { "value": "A–Z", "label": "Complete Portfolio for Composites" },
     "rd": { "value": "R&D", "label": "In-house Development" },
-    "origin": { "value": "CZ", "label": "Purely Czech Company" },
+    "origin": { "value": "CZ", "label": "Czech Company" },
     "logistics": { "value": "EU", "label": "Delivery Across Europe" }
   },
   "solution": {

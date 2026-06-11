@@ -22,7 +22,7 @@
   "stats": {
     "categories": { "value": "A–Z", "label": "Kompletní portfolio pro laminaci" },
     "rd": { "value": "R&D", "label": "Vlastní vývoj" },
-    "origin": { "value": "CZ", "label": "Ryze česká společnost" },
+    "origin": { "value": "CZ", "label": "Česká společnost" },
     "logistics": { "value": "EU", "label": "Doprava po celé Evropě" }
   },
   "solution": {
