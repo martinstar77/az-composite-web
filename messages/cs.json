@@ -22,8 +22,8 @@
   "stats": {
     "categories": { "value": "A–Z", "label": "Kompletní portfolio pro laminaci" },
     "rd": { "value": "R&D", "label": "Vlastní vývoj" },
-    "sourcing": { "value": "EU + Asia", "label": "Globální sourcing" },
-    "delivery": { "value": "Agile", "label": "Rychlá dodávka" }
+    "origin": { "value": "CZ", "label": "Ryze česká společnost" },
+    "logistics": { "value": "EU", "label": "Doprava po celé Evropě" }
   },
   "solution": {
     "heading": "PROČ AZCOMPOSITE",

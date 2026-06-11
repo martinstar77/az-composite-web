@@ -22,8 +22,8 @@
   "stats": {
     "categories": { "value": "A–Z", "label": "Complete Portfolio for Composites" },
     "rd": { "value": "R&D", "label": "In-house Development" },
-    "sourcing": { "value": "EU + Asia", "label": "Global Sourcing" },
-    "delivery": { "value": "Agile", "label": "Fast Delivery" }
+    "origin": { "value": "CZ", "label": "Purely Czech Company" },
+    "logistics": { "value": "EU", "label": "Delivery Across Europe" }
   },
   "solution": {
     "heading": "WHY AZCOMPOSITE",

@@ -59,8 +59,8 @@ export default function Stats() {
   const items = [
     { key: "categories", value: t("categories.value"), label: t("categories.label"), isNumber: false, numVal: 0 },
     { key: "rd", value: t("rd.value"), label: t("rd.label"), isNumber: false, numVal: 0 },
-    { key: "sourcing", value: t("sourcing.value"), label: t("sourcing.label"), isNumber: false, numVal: 0 },
-    { key: "delivery", value: t("delivery.value"), label: t("delivery.label"), isNumber: false, numVal: 0 },
+    { key: "origin", value: t("origin.value"), label: t("origin.label"), isNumber: false, numVal: 0 },
+    { key: "logistics", value: t("logistics.value"), label: t("logistics.label"), isNumber: false, numVal: 0 },
   ];
 
   return (
