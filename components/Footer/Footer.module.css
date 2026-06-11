@@ -35,56 +35,37 @@
   line-height: 1.5;
 }
 
-/* Nav */
-.nav {
+/* Billing */
+.billing {
   display: flex;
-  gap: var(--space-6);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: right;
 }
 
-.link {
+.billingHeading {
   font-family: var(--font-heading);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  color: var(--color-purple-mid);
+  margin-bottom: var(--space-1);
+}
+
+.billingText {
+  font-size: var(--text-xs);
   color: var(--color-text-muted);
-  transition: color var(--transition-fast);
-  touch-action: manipulation;
+  line-height: 1.6;
 }
 
-@media (hover: hover) {
-  .link:hover {
-    color: var(--color-purple-mid);
-  }
-}
-
-/* Right */
-.right {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.langLink {
+.billingIds {
   font-family: var(--font-heading);
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
   color: var(--color-text-muted);
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-  touch-action: manipulation;
+  letter-spacing: 0.05em;
 }
 
-@media (hover: hover) {
-  .langLink:hover {
-    border-color: var(--color-purple-mid);
-    color: var(--color-purple-light);
-  }
-}
 
 /* Bottom bar */
 .bottom {
@@ -124,10 +105,6 @@
     flex-wrap: wrap;
     gap: var(--space-8);
   }
-
-  .nav {
-    gap: var(--space-4);
-  }
 }
 
 @media (max-width: 640px) {
@@ -138,26 +115,8 @@
     padding-bottom: var(--space-8);
   }
 
-  .nav {
-    flex-direction: column;
-    gap: var(--space-2);
-    width: 100%;
-  }
-
-  .link {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    padding: var(--space-1) 0;
-    width: 100%;
-  }
-
-  .langLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;
-    padding: var(--space-2) var(--space-4);
+  .billing {
+    text-align: left;
   }
 
   .bottomInner {
@@ -166,3 +125,4 @@
     gap: var(--space-2);
   }
 }
+

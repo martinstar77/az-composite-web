@@ -86,20 +86,6 @@ export default function Contact() {
                 <span>{ti("email")}</span>
               </a>
             </div>
-
-            {/* Billing */}
-            <div className={styles.billing}>
-              <p className={styles.billingHeading}>{ti("billing_heading")}</p>
-              <p className={styles.billingText}>
-                {ti("billing_name")}<br />
-                {ti("billing_address")}<br />
-                {ti("billing_city")}<br />
-                {ti("billing_country")}
-              </p>
-              <p className={styles.billingIds}>
-                {ti("ico")} &nbsp;·&nbsp; {ti("dic")}
-              </p>
-            </div>
           </div>
 
           {/* Right: Form */}

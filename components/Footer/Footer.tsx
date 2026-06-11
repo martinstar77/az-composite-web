@@ -7,16 +7,9 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const nav = useTranslations("nav");
+  const ti = useTranslations("contact.info");
   const locale = useLocale();
   const year = new Date().getFullYear();
-
-  const links = [
-    { href: "#reseni", label: nav("solution") },
-    { href: "#inovace", label: nav("innovation") },
-    { href: "#portfolio", label: nav("portfolio") },
-    { href: "#kontakt", label: nav("contact") },
-  ];
 
   return (
     <footer className={styles.footer}>
@@ -36,20 +29,18 @@ export default function Footer() {
           <p className={styles.tagline}>{t("tagline")}</p>
         </div>
 
-        {/* Nav links */}
-        <nav className={styles.nav} aria-label="Footer navigace">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className={styles.link}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Social / lang */}
-        <div className={styles.right}>
-          <Link href={locale === "cs" ? "/en" : "/cs"} className={styles.langLink}>
-            {locale === "cs" ? "🇬🇧 EN" : "🇨🇿 CS"}
-          </Link>
+        {/* Billing Info */}
+        <div className={styles.billing}>
+          <h3 className={styles.billingHeading}>{ti("billing_heading")}</h3>
+          <p className={styles.billingText}>
+            <strong>{ti("billing_name")}</strong><br />
+            {ti("billing_address")}<br />
+            {ti("billing_city")}<br />
+            {ti("billing_country")}
+          </p>
+          <p className={styles.billingIds}>
+            {ti("ico")} &nbsp;·&nbsp; {ti("dic")}
+          </p>
         </div>
       </div>
 
