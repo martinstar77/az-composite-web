@@ -16,7 +16,8 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 export default function Portfolio() {
   const t = useTranslations("portfolio");
-  const items = t.raw("items") as Array<{ id: string; title: string; body: string }>;
+  const items = (t.raw("items") as Array<{ id: string; title: string; body: string }>)
+    .filter(item => item.id !== "prepregy");
 
   return (
     <section className={`section ${styles.portfolio}`} id="portfolio">
