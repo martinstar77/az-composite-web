@@ -51,9 +51,22 @@ export default function Footer() {
             <span className={styles.copy}>
               © {year} AZComposite · Ing. Filip Klier · IČO: 23048255 · {t("rights")}
             </span>
-            <Link href="/privacy" className={styles.bottomEmail}>
-              {t("privacy")}
-            </Link>
+            <div className={styles.bottomLinks}>
+              <button
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.dispatchEvent(new Event("open-cookie-settings"));
+                  }
+                }}
+                className={styles.bottomLink}
+              >
+                {t("cookie_settings")}
+              </button>
+              <span className={styles.separator}>|</span>
+              <Link href="/privacy" className={styles.bottomEmail}>
+                {t("privacy")}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

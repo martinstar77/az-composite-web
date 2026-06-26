@@ -55,6 +55,7 @@ export default async function RootLayout({
   // Read the locale set by next-intl middleware so the <html lang> attribute
   // is always accurate — avoids hydration mismatch.
   const locale = await getLocale();
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-R4WN01DDYY";
 
   return (
     <html
@@ -62,31 +63,62 @@ export default async function RootLayout({
       className={`${outfit.variable} ${afacadFlux.variable}`}
     >
       <head>
-        {/* Google Tag Manager — loaded via next/script to avoid hydration issues */}
+        {/* Google Consent Mode v2 Initialization */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              
+              // Default to denied
+              var consentAnalytical = 'denied';
+              var consentMarketing = 'denied';
+              
+              // Check if user has already granted/denied consent in a previous session
+              try {
+                var storedConsent = localStorage.getItem('cookie_consent');
+                if (storedConsent) {
+                  if (storedConsent === 'granted') {
+                    consentAnalytical = 'granted';
+                    consentMarketing = 'granted';
+                  } else if (storedConsent === 'denied') {
+                    // Stays denied
+                  } else {
+                    var parsed = JSON.parse(storedConsent);
+                    if (parsed.analytical) consentAnalytical = 'granted';
+                    if (parsed.marketing) consentMarketing = 'granted';
+                  }
+                }
+              } catch (e) {}
+              
+              gtag('consent', 'default', {
+                'ad_storage': consentMarketing,
+                'ad_user_data': consentMarketing,
+                'ad_personalization': consentMarketing,
+                'analytics_storage': consentAnalytical,
+                'wait_for_update': 500
+              });
+            `,
+          }}
+        />
+        {/* Google Analytics 4 — loaded via next/script to avoid hydration issues */}
         <Script
-          id="gtm-init"
+          id="google-tag"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-tag-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GT-TBVWFS2N');
+              gtag('js', new Date());
+              gtag('config', '${gaId}');
             `,
           }}
         />
       </head>
       <body>
-        {/* GTM noscript fallback */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GT-TBVWFS2N"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         {children}
       </body>
     </html>

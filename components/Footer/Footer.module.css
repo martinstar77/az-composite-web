@@ -93,8 +93,23 @@
   touch-action: manipulation;
 }
 
+.bottomLink {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  touch-action: manipulation;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 @media (hover: hover) {
   .bottomEmail:hover {
+    color: var(--color-purple-mid);
+  }
+  .bottomLink:hover {
     color: var(--color-purple-mid);
   }
 }
@@ -124,5 +139,17 @@
     align-items: flex-start;
     gap: var(--space-2);
   }
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.separator {
+  color: var(--color-border);
+  font-size: var(--text-xs);
+  user-select: none;
 }
 

@@ -7,6 +7,8 @@ import styles from "./CookieBanner.module.css";
 
 interface CustomWindow extends Window {
   dataLayer?: unknown[];
+  gtag?: (command: string, action: string, config: Record<string, unknown>) => void;
+  clarityInitialized?: boolean;
 }
 
 export default function CookieBanner() {
@@ -19,10 +21,42 @@ export default function CookieBanner() {
   const [consentAnalytical, setConsentAnalytical] = useState(true);
   const [consentMarketing, setConsentMarketing] = useState(true);
 
+  // Helper function to dynamically initialize Microsoft Clarity
+  const initializeClarity = () => {
+    if (typeof window !== "undefined") {
+      const customWindow = window as unknown as CustomWindow;
+      const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+
+      if (!customWindow.clarityInitialized && clarityId) {
+        customWindow.clarityInitialized = true;
+        (function(c,l,a,r,i,t,y){
+            // @ts-ignore
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            // @ts-ignore
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            // @ts-ignore
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window,document,"clarity","script",clarityId);
+      }
+    }
+  };
+
   // Define GTM consent update function
   const updateConsentMode = (analytical: boolean, marketing: boolean) => {
     if (typeof window !== "undefined") {
       const customWindow = window as unknown as CustomWindow;
+      
+      // Update Google Consent Mode v2
+      if (typeof customWindow.gtag === "function") {
+        customWindow.gtag("consent", "update", {
+          ad_storage: marketing ? "granted" : "denied",
+          analytics_storage: analytical ? "granted" : "denied",
+          ad_user_data: marketing ? "granted" : "denied",
+          ad_personalization: marketing ? "granted" : "denied",
+        });
+      }
+
+      // Legacy custom dataLayer consent updates
       const dataLayer = customWindow.dataLayer || [];
       customWindow.dataLayer = dataLayer;
       
@@ -30,14 +64,27 @@ export default function CookieBanner() {
         event: "consent_update",
         analytics_consent: analytical ? "granted" : "denied",
         marketing_consent: marketing ? "granted" : "denied",
-        // Standard GTM Consent Mode v2 fields
-        ad_storage: marketing ? "granted" : "denied",
-        analytics_storage: analytical ? "granted" : "denied",
-        ad_user_data: marketing ? "granted" : "denied",
-        ad_personalization: marketing ? "granted" : "denied",
       });
+
+      // Load/Initialize Clarity if analytical cookies are accepted
+      if (analytical) {
+        initializeClarity();
+      }
     }
   };
+
+  // Listen for the custom open event (e.g. from Footer)
+  useEffect(() => {
+    const handleOpenSettings = () => {
+      setShowBanner(true);
+      setIsSettingsOpen(true);
+    };
+
+    window.addEventListener("open-cookie-settings", handleOpenSettings);
+    return () => {
+      window.removeEventListener("open-cookie-settings", handleOpenSettings);
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
