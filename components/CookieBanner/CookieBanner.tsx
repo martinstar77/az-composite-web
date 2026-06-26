@@ -25,7 +25,7 @@ export default function CookieBanner() {
   const initializeClarity = () => {
     if (typeof window !== "undefined") {
       const customWindow = window as unknown as CustomWindow;
-      const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+      const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID || "xczgw0q5oz";
 
       if (!customWindow.clarityInitialized && clarityId) {
         customWindow.clarityInitialized = true;
