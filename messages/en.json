@@ -198,6 +198,11 @@
     ]
   },
   "portfolio_details": {
+    "title_specs": "Technical parameters",
+    "title_chem_specs": "Product range & properties",
+    "title_highlights": "B2B features & applications",
+    "message_inquiry": "Hello, I am interested in more information and a quote for: {category}.",
+    "message_spoj": "Hello, I am interested in a quote and samples for fastening systems (Specialinsert).",
     "vyztuzne": {
       "subtitle": "Structural and Cosmetic Reinforcements",
       "intro": "Complete range of reinforcing fabrics for lamination and infusion processes, providing superior strength and premium aesthetics.",

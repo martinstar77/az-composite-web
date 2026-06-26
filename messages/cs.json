@@ -198,6 +198,11 @@
     ]
   },
   "portfolio_details": {
+    "title_specs": "Technické parametry",
+    "title_chem_specs": "Sortiment a vlastnosti",
+    "title_highlights": "B2B přednosti a aplikace",
+    "message_inquiry": "Dobrý den, mám zájem o bližší informace a nacenění z kategorie: {category}.",
+    "message_spoj": "Dobrý den, mám zájem o kalkulaci a vzorky pro spojovací materiál (Specialinsert).",
     "vyztuzne": {
       "subtitle": "Konstrukční a pohledové výztuže",
       "intro": "Kompletní sortiment výztužných tkanin pro laminaci a infúzi, poskytující vynikající mechanické vlastnosti a prémiovou estetiku.",

@@ -198,7 +198,7 @@ export default function Portfolio() {
                 {/* Specs */}
                 <div className={styles.specsSection}>
                   <h4 className={styles.sectionTitle}>
-                    {selectedItem.id === "chemie" ? "Sortiment a vlastnosti" : "Technické parametry"}
+                    {selectedItem.id === "chemie" ? tDetails("title_chem_specs") : tDetails("title_specs")}
                   </h4>
                   <div className={styles.specsTable}>
                     {(tDetails.raw(`${selectedItem.id}.specs`) as Array<{ label: string; value: string }>).map((spec, index) => (
@@ -212,7 +212,7 @@ export default function Portfolio() {
 
                 {/* Highlights */}
                 <div className={styles.highlightsSection}>
-                  <h4 className={styles.sectionTitle}>B2B přednosti a aplikace</h4>
+                  <h4 className={styles.sectionTitle}>{tDetails("title_highlights")}</h4>
                   <ul className={styles.highlightsList}>
                     {(tDetails.raw(`${selectedItem.id}.highlights`) as string[]).map((highlight, index) => (
                       <li key={index} className={styles.highlightsItem}>
@@ -232,9 +232,9 @@ export default function Portfolio() {
                   className={`btn btn-primary btn-lg ${styles.drawerCta}`}
                   onClick={() => {
                     const itemName = selectedItem.title;
-                    const message = tDetails(`${selectedItem.id}.cta`).includes("spojovací")
-                      ? "Dobrý den, mám zájem o kalkulaci a vzorky pro spojovací materiál (Specialinsert)..."
-                      : `Dobrý den, mám zájem o bližší informace a nacenění z kategorie: ${itemName}.`;
+                    const message = selectedItem.id === "spoj"
+                      ? tDetails("message_spoj")
+                      : tDetails("message_inquiry", { category: itemName });
                     
                     window.dispatchEvent(new CustomEvent("prefill-contact-form", {
                       detail: { message }
