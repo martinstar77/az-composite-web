@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Contact.module.css";
 
 type FormData = {
@@ -29,7 +29,26 @@ export default function Contact() {
   const members = (ti.raw("members") || []) as Member[];
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<FormData>();
+
+  useEffect(() => {
+    const handlePrefill = (e: Event) => {
+      const customEvent = e as CustomEvent<{ message: string }>;
+      if (customEvent.detail && customEvent.detail.message) {
+        setValue("message", customEvent.detail.message);
+        
+        const el = document.getElementById("kontakt");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    window.addEventListener("prefill-contact-form", handlePrefill);
+    return () => {
+      window.removeEventListener("prefill-contact-form", handlePrefill);
+    };
+  }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
     setStatus("loading");

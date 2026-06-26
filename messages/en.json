@@ -178,5 +178,119 @@
     "section4_title": "4. Your Rights",
     "section4_text": "You have the right to request access to your personal data, its rectification, erasure, or restriction of processing. You can send your requests to: filip.klier@azcomposite.com.",
     "back": "Back to Home"
+  },
+  "how_we_work": {
+    "heading": "HOW WE WORK",
+    "subheading": "We ensure a seamless process from technical specification to delivery directly to your facility.",
+    "steps": [
+      {
+        "title": "1. Consultation & Specification",
+        "description": "We analyze your technical requirements and recommend the optimal fiber weights, resin systems, and process materials suited precisely for your manufacturing process."
+      },
+      {
+        "title": "2. Sourcing & Samples",
+        "description": "Leveraging our extensive global supplier network, we source even non-standard materials. We also offer free samples so you can run real-world tests in your production."
+      },
+      {
+        "title": "3. Agile Delivery & Support",
+        "description": "We guarantee reliable logistics across Europe. We maintain strategic warehouse stock to meet JIT (Just-In-Time) schedules and provide continuous technical support."
+      }
+    ]
+  },
+  "portfolio_details": {
+    "vyztuzne": {
+      "subtitle": "Structural and Cosmetic Reinforcements",
+      "intro": "Complete range of reinforcing fabrics for lamination and infusion processes, providing superior strength and premium aesthetics.",
+      "specs": [
+        { "label": "Materials", "value": "Carbon, Glass, Aramid (Kevlar), Flax, Hemp" },
+        { "label": "Weaves", "value": "Twill, Plain, Satin, Unidirectional (UD)" },
+        { "label": "Grammages", "value": "80 to 650 g/m²" },
+        { "label": "Roll Widths", "value": "Standard 100 cm, 125 cm, 150 cm (custom slitting available)" }
+      ],
+      "highlights": [
+        "In-house mechanical testing and microscopic crack analysis",
+        "Excellent resin wet-out and minimal porosity",
+        "Eco-friendly natural fibers (flax, hemp) with outstanding vibration dampening"
+      ],
+      "cta": "Inquire about reinforcement materials"
+    },
+    "pryskyrice": {
+      "subtitle": "Lamination and Infusion Resin Systems",
+      "intro": "High-performance resins engineered for various manufacturing temperatures and application techniques.",
+      "specs": [
+        { "label": "Types", "value": "Epoxy, Vinylester, Polyester resins, eco-friendly Bio-resins" },
+        { "label": "Processes", "value": "Hand lay-up, vacuum infusion, RTM, casting" },
+        { "label": "Thermal Limit", "value": "From room cure up to Tg exceeding 150 °C" },
+        { "label": "Pot Life", "value": "Adjustable (from 15 minutes to several hours)" }
+      ],
+      "highlights": [
+        "Fully customizable systems formulated locally in the Czech Republic",
+        "Low viscosity for rapid impregnation without air entrapment",
+        "High UV resistance and mechanical strength"
+      ],
+      "cta": "Inquire about resins"
+    },
+    "sendvic": {
+      "subtitle": "Lightweight Cores for Maximum Stiffness",
+      "intro": "Advanced sandwich core materials to reduce structural weight while maintaining high bending stiffness.",
+      "specs": [
+        { "label": "Core Types", "value": "PVC foams, PMI foams, Balsa wood, Honeycombs" },
+        { "label": "Densities", "value": "40 to 200 kg/m³" },
+        { "label": "Thicknesses", "value": "3 mm to 50 mm" },
+        { "label": "Finishing", "value": "Grooved, perforated, grid-backed for resin optimization" }
+      ],
+      "highlights": [
+        "Superior shear strength and exceptional fatigue resistance",
+        "Thermoformable for complex 3D curved shapes",
+        "Compatible with all standard epoxy and polyester systems"
+      ],
+      "cta": "Inquire about sandwich materials"
+    },
+    "techmat": {
+      "subtitle": "Process Consumables for Vacuum Bagging",
+      "intro": "Complete range of auxiliary materials for vacuum bagging, infusion, and prepreg processing.",
+      "specs": [
+        { "label": "Product Range", "value": "Vacuum bagging films, peel plies, breathers/bleeders, release films" },
+        { "label": "Sealant Tapes", "value": "Tack-tapes rated for temperatures from 120 °C to 230 °C" },
+        { "label": "Widths", "value": "Up to 300 cm for large-scale composite parts" }
+      ],
+      "highlights": [
+        "High elongation and tear resistance under full vacuum",
+        "Temperature-stable materials suitable for oven and autoclave cures",
+        "Ensures consistent resin flow and clean, residue-free release"
+      ],
+      "cta": "Inquire about process materials"
+    },
+    "chemie": {
+      "subtitle": "Adhesives, Polishing, and Mold Release",
+      "intro": "Professional auxiliary chemical products for perfect surface finish, easy demolding, and high-strength bonding.",
+      "specs": [
+        { "label": "Polishing", "value": "Premium Pai Cristal (PaiBoat) compounds and buffing pads for marine and industrial gelcoats" },
+        { "label": "Cleaning", "value": "Water-based RST-5 – 100% non-toxic, biodegradable acetone replacement" },
+        { "label": "Release", "value": "Semi-permanent release systems and waxes for multiple releases" },
+        { "label": "Adhesives", "value": "Structural 2-component epoxy and polyurethane adhesives" }
+      ],
+      "highlights": [
+        "RST-5 ecological cleaning is non-flammable, odorless, and fully safe for operations",
+        "Pai Cristal polishing systems guarantee scratch-free mirror gloss",
+        "High chemical durability of release agents reduces cycle times and extends mold life"
+      ],
+      "cta": "Inquire about chemicals & polishing"
+    },
+    "spoj": {
+      "subtitle": "Fastening Solutions and Threaded Inserts",
+      "intro": "Specialized fasteners designed for integration during lamination or post-cure assembly in composite and sandwich panels.",
+      "specs": [
+        { "label": "Brand", "value": "Specialinsert (certified fastening systems)" },
+        { "label": "Types", "value": "Threaded inserts for co-curing, bonding inserts, rivet nuts" },
+        { "label": "Materials", "value": "Stainless steel (A2/A4), zinc-plated steel, brass" }
+      ],
+      "highlights": [
+        "High resistance to pull-out and torque-out in composite laminates",
+        "Co-cured studs and collar nuts integrate directly into the laminate structure",
+        "Professional solutions eliminating mechanical weakening caused by drilling"
+      ],
+      "cta": "Inquire about fastening systems"
+    }
   }
 }

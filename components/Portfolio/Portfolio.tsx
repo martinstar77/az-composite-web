@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import styles from "./Portfolio.module.css";
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -57,8 +58,25 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 
 export default function Portfolio() {
   const t = useTranslations("portfolio");
+  const tDetails = useTranslations("portfolio_details");
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+
   const items = (t.raw("items") as Array<{ id: string; title: string; body: string }>)
     .filter(item => item.id !== "prepregy");
+
+  const selectedItem = items.find(item => item.id === selectedItemId);
+
+  // Prevent scroll when drawer is open
+  useEffect(() => {
+    if (selectedItemId) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedItemId]);
 
   return (
     <section className={`section ${styles.portfolio}`} id="portfolio">
@@ -85,6 +103,8 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              onClick={() => setSelectedItemId(item.id)}
+              style={{ cursor: "pointer" }}
             >
               <div className={styles.cardInner}>
                 <div className={styles.cardSymbol}>{CATEGORY_ICONS[item.id]}</div>
@@ -121,6 +141,117 @@ export default function Portfolio() {
           </p>
         </div>
       </motion.div>
+
+      {/* Slide-over Drawer for B2B details */}
+      <AnimatePresence>
+        {selectedItemId && selectedItem && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className={styles.backdrop}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedItemId(null)}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              className={styles.drawer}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 280 }}
+            >
+              {/* Close Button */}
+              <button
+                className={styles.closeBtn}
+                onClick={() => setSelectedItemId(null)}
+                aria-label="Close"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+
+              <div className={styles.drawerContent}>
+                {/* Header */}
+                <div className={styles.drawerHeader}>
+                  <div className={styles.drawerSymbol}>
+                    {CATEGORY_ICONS[selectedItem.id]}
+                  </div>
+                  <div>
+                    <span className={styles.drawerSubtitle}>
+                      {tDetails(`${selectedItem.id}.subtitle`)}
+                    </span>
+                    <h3 className={styles.drawerTitle}>{selectedItem.title}</h3>
+                  </div>
+                </div>
+
+                <div className="accent-line" style={{ margin: "var(--space-6) 0", height: "1px", width: "100%" }} />
+
+                {/* Intro */}
+                <p className={styles.drawerIntro}>
+                  {tDetails(`${selectedItem.id}.intro`)}
+                </p>
+
+                {/* Specs */}
+                <div className={styles.specsSection}>
+                  <h4 className={styles.sectionTitle}>
+                    {selectedItem.id === "chemie" ? "Sortiment a vlastnosti" : "Technické parametry"}
+                  </h4>
+                  <div className={styles.specsTable}>
+                    {(tDetails.raw(`${selectedItem.id}.specs`) as Array<{ label: string; value: string }>).map((spec, index) => (
+                      <div key={index} className={styles.specsRow}>
+                        <span className={styles.specsLabel}>{spec.label}</span>
+                        <span className={styles.specsValue}>{spec.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Highlights */}
+                <div className={styles.highlightsSection}>
+                  <h4 className={styles.sectionTitle}>B2B přednosti a aplikace</h4>
+                  <ul className={styles.highlightsList}>
+                    {(tDetails.raw(`${selectedItem.id}.highlights`) as string[]).map((highlight, index) => (
+                      <li key={index} className={styles.highlightsItem}>
+                        <span className={styles.checkIcon}>
+                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M13.3 4.3L6 11.6l-3.3-3.3" />
+                          </svg>
+                        </span>
+                        <span className={styles.highlightsText}>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA */}
+                <button
+                  className={`btn btn-primary btn-lg ${styles.drawerCta}`}
+                  onClick={() => {
+                    const itemName = selectedItem.title;
+                    const message = tDetails(`${selectedItem.id}.cta`).includes("spojovací")
+                      ? "Dobrý den, mám zájem o kalkulaci a vzorky pro spojovací materiál (Specialinsert)..."
+                      : `Dobrý den, mám zájem o bližší informace a nacenění z kategorie: ${itemName}.`;
+                    
+                    window.dispatchEvent(new CustomEvent("prefill-contact-form", {
+                      detail: { message }
+                    }));
+                    setSelectedItemId(null);
+                  }}
+                >
+                  {tDetails(`${selectedItem.id}.cta`)}
+                  <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 8h12M10 4l4 4-4 4" />
+                  </svg>
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

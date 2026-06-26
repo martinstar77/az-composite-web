@@ -178,5 +178,119 @@
     "section4_title": "4. Vaše práva",
     "section4_text": "Máte právo požadovat přístup ke svým osobním údajům, jejich opravu, vymazání nebo omezení zpracování. Své dotazy můžete zasílat na e-mail: filip.klier@azcomposite.com.",
     "back": "Zpět na úvod"
+  },
+  "how_we_work": {
+    "heading": "JAK PRACUJEME",
+    "subheading": "Zajišťujeme bezproblémový průběh od technické specifikace po doručení přímo do vaší výroby.",
+    "steps": [
+      {
+        "title": "1. Konzultace a specifikace",
+        "description": "Analyzujeme vaše technické požadavky. Doporučíme optimální gramáže vláken, typy pryskyřičných systémů a technologických materiálů přesně pro vaše výrobní procesy."
+      },
+      {
+        "title": "2. Sourcing a vzorky",
+        "description": "Díky naší široké mezinárodní síti dodavatelů zajistíme i nestandardní materiály. Nabízíme možnost poskytnutí vzorků zdarma pro reálné testy ve vaší výrobě."
+      },
+      {
+        "title": "3. Rychlé doručení a podpora",
+        "description": "Zajišťujeme plynulé zásobování po celé Evropě. Držíme strategické skladové zásoby pro splnění termínů JIT (Just-in-Time) a poskytujeme stálou technickou podporu."
+      }
+    ]
+  },
+  "portfolio_details": {
+    "vyztuzne": {
+      "subtitle": "Konstrukční a pohledové výztuže",
+      "intro": "Kompletní sortiment výztužných tkanin pro laminaci a infúzi, poskytující vynikající mechanické vlastnosti a prémiovou estetiku.",
+      "specs": [
+        { "label": "Materiály", "value": "Uhlík (Carbon), Sklo (Glass), Aramid (Kevlar), přírodní vlákna (Len, Konopí)" },
+        { "label": "Vazby tkanin", "value": "Kepr (Twill), Plátno (Plain), Atlas (Satin), Jednosměrné (UD)" },
+        { "label": "Gramáže", "value": "80 až 650 g/m²" },
+        { "label": "Šířky rolí", "value": "Standardně 100 cm, 125 cm, 150 cm (možnost řezání na míru)" }
+      ],
+      "highlights": [
+        "Vlastní mechanické testy a mikroskopická analýza trhlin",
+        "Vynikající sycení pryskyřicí s minimální porézností",
+        "Ekologické tkaniny ze lnu a konopí s vysokým útlumem vibrací"
+      ],
+      "cta": "Poptat výztužné materiály"
+    },
+    "pryskyrice": {
+      "subtitle": "Systémy pro laminaci a infúzi",
+      "intro": "Vysoce výkonné pryskyřičné systémy vyvinuté pro různé zpracovatelské teploty a aplikační techniky.",
+      "specs": [
+        { "label": "Typy", "value": "Epoxidové, vinylesterové, polyesterové pryskyřice, ekologické bio-pryskyřice" },
+        { "label": "Procesy", "value": "Ruční laminace, infúze, RTM, odlévání" },
+        { "label": "Odolnost", "value": "Od běžných teplot až po Tg nad 150 °C" },
+        { "label": "Doba zpracování", "value": "Nastavitelná (od 15 minut do několika hodin)" }
+      ],
+      "highlights": [
+        "Plně přizpůsobitelné systémy vyráběné přímo v ČR",
+        "Nízká viskozita pro rychlé sycení bez vzduchových bublin",
+        "Vysoká UV stabilita a vynikající mechanická pevnost"
+      ],
+      "cta": "Poptat pryskyřice"
+    },
+    "sendvic": {
+      "subtitle": "Lehčená jádra pro maximální ohybovou tuhost",
+      "intro": "Vysoce výkonné sendvičové materiály pro snížení hmotnosti konstrukce při zachování maximální tuhosti.",
+      "specs": [
+        { "label": "Typy jader", "value": "PVC pěny, PMI pěny, Balsa dřevo, Voštiny (honeycomb)" },
+        { "label": "Hustoty", "value": "40 až 200 kg/m³" },
+        { "label": "Tloušťky", "value": "3 mm až 50 mm" },
+        { "label": "Povrchová úprava", "value": "Drážkované, perforované, s mřížkou pro úsporu pryskyřice" }
+      ],
+      "highlights": [
+        "Vynikající pevnost ve smyku a odolnost proti únavě",
+        "Tepelná tvarovatelnost (thermoforming) pro komplexní tvary",
+        "Kompatibilní se všemi epoxidovými a polyesterovými systémy"
+      ],
+      "cta": "Poptat sendvičové materiály"
+    },
+    "techmat": {
+      "subtitle": "Pomocné materiály pro vakuové procesy",
+      "intro": "Kompletní škála spotřebního materiálu pro vakuové odsávání, infúzi a prepregové technologie.",
+      "specs": [
+        { "label": "Sortiment", "value": "Vakuové fólie, strhávací tkaniny (peel ply), odsávací rouna, separační fólie" },
+        { "label": "Teplotní limity", "value": "Těsnicí pásky a fólie pro teploty od 120 °C do 230 °C" },
+        { "label": "Rozměry", "value": "Šířky až do 300 cm pro velkoplošné díly" }
+      ],
+      "highlights": [
+        "Vysoká elasticita a odolnost proti roztržení pod podtlakem",
+        "Teplotně stabilní materiály vhodné do pece i autoklávu",
+        "Zajištění stabilního průtoku pryskyřice a čisté separace bez zbytků"
+      ],
+      "cta": "Poptat technologické materiály"
+    },
+    "chemie": {
+      "subtitle": "Lepidla, leštění a separace forem",
+      "intro": "Profesionální doplňková chemie pro dokonalý povrch, snadné odformování a spolehlivé lepení.",
+      "specs": [
+        { "label": "Leštění", "value": "Prémiové lešticí pasty a kotouče Pai Cristal (PaiBoat) pro lodní i průmyslové gelcoaty" },
+        { "label": "Čištění", "value": "RST-5 na vodní bázi – 100% netoxická a biologicky odbouratelná náhrada acetonu" },
+        { "label": "Separace", "value": "Semi-permanentní separátory a vosky pro opakované odformování" },
+        { "label": "Lepidla", "value": "Konstrukční 2-složková epoxidová a polyuretanová lepidla" }
+      ],
+      "highlights": [
+        "Ekologické čištění RST-5 je nehořlavé, bez zápachu a plně bezpečné pro provoz",
+        "Lešticí systémy Pai Cristal zaručují zrcadlový lesk bez mikroškrábanců",
+        "Vysoká chemická odolnost separátorů zkracuje čas cyklu a šetří formu"
+      ],
+      "cta": "Poptat chemii a leštění"
+    },
+    "spoj": {
+      "subtitle": "Kotevní technika a závitové vložky",
+      "intro": "Specializované kotevní prvky pro laminaci a dodatečnou montáž do kompozitních a sendvičových panelů.",
+      "specs": [
+        { "label": "Značka", "value": "Specialinsert (certifikované kotevní systémy)" },
+        { "label": "Typy", "value": "Závitové vložky pro integraci při laminaci, vložky pro dodatečné lepení, nýtovací matice" },
+        { "label": "Materiály", "value": "Nerezová ocel (A2/A4), pozinkovaná ocel, mosaz" }
+      ],
+      "highlights": [
+        "Vysoká odolnost proti vytržení a protočení v kompozitním dílu",
+        "Kotevní kolíky a matice integrované přímo do struktury laminátu",
+        "Profesionální řešení eliminující mechanické oslabení materiálu vrtáním"
+      ],
+      "cta": "Poptat spojovací materiál"
+    }
   }
 }
