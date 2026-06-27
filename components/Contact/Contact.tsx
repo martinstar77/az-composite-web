@@ -12,6 +12,7 @@ type FormData = {
   email: string;
   phone: string;
   message: string;
+  website_verification?: string;
 };
 
 export default function Contact() {
@@ -188,6 +189,18 @@ export default function Contact() {
                   placeholder={tf("placeholder_message")}
                   {...register("message", { required: true })}
                   aria-invalid={!!errors.message}
+                />
+              </div>
+
+              {/* Honeypot field for spam bot protection */}
+              <div className={styles.honeypot} aria-hidden="true">
+                <label htmlFor="website_verification">Do not fill this field</label>
+                <input
+                  id="website_verification"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  {...register("website_verification")}
                 />
               </div>
 

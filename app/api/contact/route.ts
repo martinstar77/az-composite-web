@@ -4,7 +4,16 @@ import { Resend } from "resend";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, company, email, phone, message } = body;
+    const { name, company, email, phone, message, website_verification } = body;
+
+    // Honeypot check (Spam bot detection)
+    if (website_verification) {
+      console.warn("🛡️ Honeypot triggered. Bot submission detected.");
+      // Wait for 2 seconds to penalize the bot (wasting its resources)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Decoy success response so the bot thinks it succeeded and stops retrying
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
 
     // Basic validation
     if (!name || !email || !message) {
