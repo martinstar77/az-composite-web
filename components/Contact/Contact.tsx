@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import styles from "./Contact.module.css";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 type FormData = {
   name: string;
@@ -12,7 +13,9 @@ type FormData = {
   email: string;
   phone: string;
   message: string;
-  website_verification?: string;
+  fax_number?: string;
+  form_submitted_at?: number;
+  turnstileToken?: string;
 };
 
 export default function Contact() {
@@ -29,8 +32,14 @@ export default function Contact() {
   
   const members = (ti.raw("members") || []) as Member[];
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [mountedAt, setMountedAt] = useState<number>(0);
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
 
   const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<FormData>();
+
+  useEffect(() => {
+    setMountedAt(Date.now());
+  }, []);
 
   useEffect(() => {
     const handlePrefill = (e: Event) => {
@@ -52,16 +61,40 @@ export default function Contact() {
   }, [setValue]);
 
   const onSubmit = async (data: FormData) => {
+    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    
+    if (siteKey && !turnstileToken) {
+      setStatus("error");
+      return;
+    }
+
     setStatus("loading");
+
+    // Client-side quick check: if submitted under 3 seconds, trigger decoy success instantly
+    if (mountedAt && Date.now() - mountedAt < 3000) {
+      console.warn("🛡️ Honeypot triggered: Submitted too quickly.");
+      setTimeout(() => {
+        setStatus("success");
+        reset();
+        setTurnstileToken("");
+      }, 2000); // Simulate network delay
+      return;
+    }
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          form_submitted_at: mountedAt,
+          turnstileToken,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
       reset();
+      setTurnstileToken("");
     } catch {
       setStatus("error");
     }
@@ -192,15 +225,15 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Honeypot field for spam bot protection */}
-              <div className={styles.honeypot} aria-hidden="true">
-                <label htmlFor="website_verification">Do not fill this field</label>
+              {/* Decoy field for spam bot protection */}
+              <div className={styles.decoyField} aria-hidden="true">
+                <label htmlFor="fax_number">Fax Number</label>
                 <input
-                  id="website_verification"
+                  id="fax_number"
                   type="text"
                   tabIndex={-1}
                   autoComplete="off"
-                  {...register("website_verification")}
+                  {...register("fax_number")}
                 />
               </div>
 
@@ -220,10 +253,22 @@ export default function Contact() {
                 </div>
               )}
 
+              {/* Cloudflare Turnstile Widget */}
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                <div style={{ marginBottom: "var(--space-4)" }}>
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken("")}
+                    onExpire={() => setTurnstileToken("")}
+                  />
+                </div>
+              )}
+
               <button
                 type="submit"
                 className={`btn btn-primary btn-lg ${styles.submitBtn}`}
-                disabled={status === "loading"}
+                disabled={status === "loading" || (!!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !turnstileToken)}
                 id="contact-submit"
               >
                 {status === "loading" ? (

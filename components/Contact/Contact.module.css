@@ -252,7 +252,7 @@
   }
 }
 
-.honeypot {
+.decoyField {
   position: absolute;
   opacity: 0;
   height: 0;
